@@ -32,23 +32,24 @@ submission.
 
 ## Page architecture
 
-1. Part 1: forecasts and resolution protocol.
-2. Part 1 continued, if needed.
+1. Part 1: F01-F06 and the portfolio claim.
+2. Part 1: F07-F12 and four empirical anchors.
 3. Part 2: framework and causal mechanism.
 4. Part 2: state behavior, capital flows, and bottlenecks.
-5. Part 2: winners, losers, scenarios, and implications.
+5. Part 2: winners, losers, scenarios, and falsification.
 6. Part 3: method, calibration, and cross-forecast consistency.
-7. Part 3: AI capability, diffusion, capital, and productivity.
-8. Part 3: energy, chips, and sovereign compute.
-9. Part 3: trade, minerals, China, and multilateral institutions.
-10. Sources, resolution registry, and compact sensitivity summary.
+7. Part 3: AI capability, diffusion, productivity, capital, and energy.
+8. Part 3: U.S. chips, EU compute, and mineral refining.
+9. Part 3: China, MFN trade, tariffs, and multilateral institutions.
+10. Resolution registry and selected sources.
 
 ## Quality gates
 
 - Every event is binary and cannot be "mostly true."
 - Every threshold has a named source, release vintage, time window, and rule for
   revisions or discontinued series.
-- No event is already true at the information cutoff.
+- No event resolves at the information cutoff; persistence events retain a
+  genuine path to reversal before their future resolution date.
 - Forecast probabilities are not clustered around 50-70%.
 - Correlated forecasts are identified and jointly stress-tested.
 - Facts are distinguished from judgment and from conditional scenarios.

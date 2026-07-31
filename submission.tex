@@ -18,14 +18,17 @@
 \usepackage{ragged2e}
 \usepackage{setspace}
 
-\definecolor{ink}{HTML}{13222F}
-\definecolor{muted}{HTML}{65727B}
-\definecolor{blue}{HTML}{2F6F91}
-\definecolor{teal}{HTML}{2F8077}
-\definecolor{gold}{HTML}{B47E24}
-\definecolor{red}{HTML}{A84F45}
-\definecolor{rule}{HTML}{D8DDE0}
-\definecolor{paper}{HTML}{F7F7F4}
+\definecolor{ink}{HTML}{172733}
+\definecolor{muted}{HTML}{66757D}
+\definecolor{blue}{HTML}{276A8A}
+\definecolor{teal}{HTML}{2B7A72}
+\definecolor{gold}{HTML}{AD761F}
+\definecolor{red}{HTML}{AF4B42}
+\definecolor{rule}{HTML}{D4DCDE}
+\definecolor{paper}{HTML}{F6F7F4}
+\definecolor{panel}{HTML}{EDF1F0}
+\definecolor{bluepale}{HTML}{EAF1F4}
+\definecolor{redpale}{HTML}{F4EDEB}
 
 \hypersetup{
   colorlinks=true,
@@ -42,43 +45,45 @@
 \setlength{\columnsep}{0.22in}
 \setlist[itemize]{leftmargin=1.15em,itemsep=1.4pt,topsep=2pt}
 \setlist[enumerate]{leftmargin=1.35em,itemsep=1.8pt,topsep=2pt}
-\renewcommand{\arraystretch}{1.08}
+\renewcommand{\arraystretch}{1.10}
 \emergencystretch=1.5em
 \pagestyle{fancy}
 \fancyhf{}
 \newif\ifdraft
 \drafttrue
-\fancyhead[L]{\scriptsize\color{muted}\textbf{FORECASTING THE FUTURE 2026}}
-\fancyhead[R]{\scriptsize\color{muted}JOAO PAULO ZANGRANDI}
-\fancyfoot[C]{\scriptsize\color{muted}\thepage\ /\ 10}
+\fancyhead[L]{\sffamily\scriptsize\color{muted}\textbf{FORECASTING THE FUTURE 2026}}
+\fancyhead[R]{\sffamily\scriptsize\color{muted}JOAO PAULO ZANGRANDI}
+\fancyfoot[C]{\sffamily\scriptsize\color{muted}\thepage\ /\ 10}
 \ifdraft
-  \fancyfoot[L]{\scriptsize\color{red}\textbf{AUTHOR REVIEW DRAFT --- NOT FOR SUBMISSION}}
+  \fancyfoot[L]{\sffamily\scriptsize\color{red}\textbf{AUTHOR REVIEW DRAFT --- NOT FOR SUBMISSION}}
 \fi
 \renewcommand{\headrulewidth}{0.35pt}
 \renewcommand{\footrulewidth}{0pt}
 \setlength{\headheight}{13pt}
 
-\titleformat{\section}{\color{ink}\Large\bfseries}{}{0pt}{}
-\titleformat{\subsection}{\color{ink}\normalsize\bfseries}{}{0pt}{}
+\titleformat{\section}{\sffamily\color{ink}\Large\bfseries}{}{0pt}{}
+\titleformat{\subsection}{\sffamily\color{ink}\normalsize\bfseries}{}{0pt}{}
 \titlespacing*{\section}{0pt}{2pt}{4pt}
 \titlespacing*{\subsection}{0pt}{5pt}{1pt}
 
 \newcommand{\src}[1]{\textsuperscript{\color{blue}[#1]}}
-\newcommand{\eyebrow}[1]{{\footnotesize\color{blue}\bfseries\MakeUppercase{#1}}}
-\newcommand{\forecast}[4]{%
+\newcommand{\eyebrow}[1]{{\sffamily\footnotesize\color{blue}\bfseries\MakeUppercase{#1}}}
+\newcommand{\pagetitle}[1]{{\fontsize{20}{22}\selectfont\bfseries #1\par}}
+\newcommand{\forecast}[5]{%
   \noindent
-  \begin{minipage}[t]{0.105\textwidth}
+  \begin{minipage}[t]{0.112\textwidth}
     \vspace{0pt}
-    {\scriptsize\color{muted}\bfseries #1}\\[-1pt]
-    {\LARGE\color{#4}\bfseries #2}
+    {\sffamily\scriptsize\color{muted}\bfseries #1}\\[-1pt]
+    {\sffamily\fontsize{21}{21}\selectfont\color{#5}\bfseries #2}\\[-1pt]
+    {\sffamily\fontsize{5.9}{6.6}\selectfont\color{#5}\bfseries\MakeUppercase{#3}}
   \end{minipage}\hfill
-  \begin{minipage}[t]{0.865\textwidth}
-    \vspace{1pt}
-    #3
+  \begin{minipage}[t]{0.852\textwidth}
+    \vspace{2pt}
+    #4
   \end{minipage}
-  \par\vspace{5.4pt}\color{rule}\hrule\color{ink}\vspace{5.4pt}
+  \par\vspace{4.5pt}\color{rule}\hrule\color{ink}\vspace{4.5pt}
 }
-\newcommand{\tighthead}[1]{\vspace{2pt}{\color{ink}\bfseries #1}\par\vspace{1pt}}
+\newcommand{\tighthead}[1]{\vspace{2pt}{\sffamily\color{ink}\bfseries #1}\par\vspace{1pt}}
 
 \begin{document}
 \color{ink}
@@ -87,9 +92,9 @@
 % PAGE 1 ---------------------------------------------------------------------
 \eyebrow{Part 1 --- Your Forecasts}
 
-{\fontsize{22}{24}\selectfont\bfseries The Assured-Access Economy\par}
+{\fontsize{23}{25}\selectfont\bfseries The Assured-Access Economy\par}
 \vspace{1pt}
-{\large\color{muted}Forecasting the collision of abundant intelligence and scarce complements}
+{\sffamily\large\color{muted}Abundant intelligence meets scarce, strategic complements}
 
 \vspace{4pt}
 \begin{tabularx}{\textwidth}{@{}Xr@{}}
@@ -103,40 +108,51 @@ and fallback rules on page 10. Probabilities are unconditional as of the
 information cutoff and rounded to whole percentage points.
 
 \vspace{4pt}
-\forecast{F01}{75\%}{There is a 75\% chance that, by December 31, 2029, METR will report a 50\% task-completion time horizon of at least 168 human-expert hours for a publicly available general-purpose AI agent.}{blue}
+\forecast{F01}{75\%}{Capability}{There is a 75\% chance that, by December 31, 2029, METR will report a 50\% task-completion time horizon of at least 168 human-expert hours for a publicly available general-purpose AI agent.}{blue}
+\vfill
 
-\forecast{F02}{64\%}{There is a 64\% chance that at least 35\% of U.S. employer firms will report using AI in any business function in the final 2028 Business Trends and Outlook Survey estimate.}{teal}
+\forecast{F02}{64\%}{Diffusion}{There is a 64\% chance that at least 35\% of U.S. employer firms will report using AI in any business function in the final 2028 Business Trends and Outlook Survey estimate.}{teal}
+\vfill
 
-\forecast{F03}{46\%}{There is a 46\% chance that U.S. nonfarm-business labor productivity will grow by more than 2.25\% annualized from 2026Q4 through 2030Q4.}{gold}
+\forecast{F03}{46\%}{Productivity}{There is a 46\% chance that U.S. nonfarm-business labor productivity will grow by more than 2.25\% annualized from 2026Q4 through 2030Q4.}{gold}
+\vfill
 
-\forecast{F04}{58\%}{There is a 58\% chance that Alphabet, Amazon, Meta, and Microsoft will report more than \$1 trillion of aggregate capital expenditure in calendar 2028.}{red}
+\forecast{F04}{58\%}{Capital}{There is a 58\% chance that Alphabet, Amazon, Meta, and Microsoft will report more than \$1 trillion of aggregate capital expenditure in calendar 2028.}{red}
+\vfill
 
-\forecast{F05}{52\%}{There is a 52\% chance that data centers will consume more than 12\% of total U.S. electricity in calendar 2030.}{teal}
+\forecast{F05}{52\%}{Energy}{There is a 52\% chance that data centers will consume more than 12\% of total U.S. electricity in calendar 2030.}{teal}
+\vfill
 
-\forecast{F06}{78\%}{There is a 78\% chance that at least three independent foundry operators will be conducting commercial high-volume production on company-designated 2-nanometer-or-smaller process nodes in the United States by December 31, 2030.}{blue}
+\forecast{F06}{78\%}{Chips}{There is a 78\% chance that at least three independent foundry operators will be conducting commercial high-volume production on company-designated 2-nanometer-or-smaller process nodes in the United States by December 31, 2030.}{blue}
 
 \vfill
-{\scriptsize\color{muted}Forecast colors identify analytical clusters, not confidence bands.}
+\colorbox{panel}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{
+  \sffamily\scriptsize\color{ink}
+  \textbf{Portfolio claim.} Capability scales before productivity; strategic
+  capacity duplicates before complete supply chains diversify; trade rules
+  fragment before global trade collapses. Colors identify analytical bundles,
+  not confidence bands.
+}}
 
 \newpage
 
 % PAGE 2 ---------------------------------------------------------------------
 \eyebrow{Part 1 --- Your Forecasts, continued}
 
-{\large\bfseries Modern Mercantilism and the physical stack}
+{\large\bfseries The physical stack and the trade regime}
 \vspace{5pt}
 
-\forecast{F07}{39\%}{There is a 39\% chance that at least four facilities selected under the EU AI Gigafactories initiative will be operational and accepting compute workloads from external users by December 31, 2029.}{red}
+\forecast{F07}{39\%}{EU compute}{There is a 39\% chance that at least four facilities selected under the EU AI Gigafactories initiative will be operational and accepting compute workloads from external users by December 31, 2029.}{red}
 
-\forecast{F08}{83\%}{There is an 83\% chance that the average top-country refining share across copper, lithium, nickel, cobalt, graphite, and manganese will remain above 65\% in 2030.}{gold}
+\forecast{F08}{83\%}{Minerals}{There is an 83\% chance that the average top-country refining share across copper, lithium, nickel, cobalt, graphite, and manganese will remain above 65\% in 2030.}{gold}
 
-\forecast{F09}{68\%}{There is a 68\% chance that China's annual goods trade surplus will exceed \$1 trillion in at least two of the three calendar years from 2027 through 2029.}{red}
+\forecast{F09}{68\%}{China trade}{There is a 68\% chance that China's annual goods trade surplus will exceed \$1 trillion in at least two of the three calendar years from 2027 through 2029.}{red}
 
-\forecast{F10}{57\%}{There is a 57\% chance that no more than 65\% of global merchandise trade will be conducted on WTO most-favored-nation terms at year-end 2029.}{blue}
+\forecast{F10}{57\%}{Trade regime}{There is a 57\% chance that no more than 65\% of global merchandise trade will be conducted on WTO most-favored-nation terms at year-end 2029.}{blue}
 
-\forecast{F11}{82\%}{There is an 82\% chance that the WTO Appellate Body will still lack the minimum three sitting members needed to hear an appeal on December 31, 2029.}{gold}
+\forecast{F11}{82\%}{Institutions}{There is an 82\% chance that the WTO Appellate Body will still lack the minimum three sitting members needed to hear an appeal on December 31, 2029.}{gold}
 
-\forecast{F12}{72\%}{There is a 72\% chance that the annual U.S. effective tariff rate, measured as duties collected divided by customs value, will average at least 8\% across calendar years 2027 through 2029.}{red}
+\forecast{F12}{72\%}{Tariffs}{There is a 72\% chance that the annual U.S. effective tariff rate, measured as duties collected divided by customs value, will average at least 8\% across calendar years 2027 through 2029.}{red}
 
 \vspace{2pt}
 \begin{center}
@@ -154,21 +170,22 @@ average excludes rare earths; the MFN share is the WTO's early-2026 estimate.
 % PAGE 3 ---------------------------------------------------------------------
 \eyebrow{Part 2 --- Framework \& Holistic Synthesis}
 
-{\fontsize{20}{22}\selectfont\bfseries Intelligence gets cheaper; assurance gets dearer\par}
+\pagetitle{Intelligence gets cheaper; assurance gets dearer}
 \vspace{3pt}
 
-\textbf{Thesis.} AI is making cognition abundant faster than economies can make
-its complements abundant. Modern Mercantilism is the political response to
-that mismatch: governments pay a premium to control power, chips, minerals,
-data, capital, and industrial know-how inside trusted jurisdictions. The
-interaction creates an \textit{assured-access economy}. It fragments strategic
-nodes, not the global network; raises investment before it raises measured
-productivity; and rewards control of bottlenecks more reliably than ownership
-of any single model.
+\textbf{Thesis.} My highest-conviction claim is not that AI makes everything
+scarce. It is that AI changes which scarcities are worth insuring. Cognition is
+becoming abundant faster than economies can make power, chips, minerals, data,
+capital, and industrial know-how abundant. Modern Mercantilism is the political
+response to that mismatch: states pay a premium to secure those complements
+inside trusted jurisdictions. The result is an \textit{assured-access economy}.
+It fragments strategic nodes, not the global network; raises investment before
+measured productivity; and rewards control of bottlenecks more reliably than
+ownership of any single model.
 
-Bridgewater's useful starting point is that national security now enters
-production functions directly.\src{3,5} My departure is to treat ``AI'' and
-``mercantilism'' as a coupled system rather than two resource grabs. Cheap
+Bridgewater's starting point is that national security now enters production
+functions directly.\src{3,5} My departure is to model ``AI'' and
+``mercantilism'' as one coupled system rather than two parallel resource grabs. Cheap
 intelligence increases the value of scarce physical inputs; dependence on
 those inputs increases the state's willingness to subsidize and restrict them;
 the resulting duplication and cost pressure increase demand for AI efficiency.
@@ -211,7 +228,7 @@ growth clearing 2.25\% through 2030 (F03).
 % PAGE 4 ---------------------------------------------------------------------
 \eyebrow{Part 2 --- Framework \& Holistic Synthesis}
 
-{\Large\bfseries From comparative advantage to assured access}
+\pagetitle{From comparative advantage to assured access}
 
 \tighthead{1. States target chokepoints, not autarky}
 Complete self-sufficiency is arithmetically implausible and economically
@@ -232,6 +249,7 @@ firms can redirect exports faster than deficit economies can build complete
 supply ecosystems. F10 says discriminatory and preferential lanes keep
 expanding, but not that trade collapses.
 
+\vfill
 \tighthead{2. Trade balances and capital balances are the same transaction}
 The mercantilist ambition to shrink a trade deficit also shrinks the matching
 capital inflow. Nir Bar Dea's observation is operationally important: foreign
@@ -242,6 +260,7 @@ its price. The U.S. retains deep capital markets, frontier software, abundant
 energy options, and hyperscaler demand; allies acquire more local
 infrastructure, while paying higher financing and duplication costs.
 
+\vfill
 \tighthead{3. Industrial policy buys capacity more readily than capability}
 Subsidies can move factories, especially where scale economies are strong, but
 local-content rules also raise cost and can undo much of the demand stimulus.
@@ -252,6 +271,7 @@ already ramping 18A and Samsung and TSMC have funded U.S. paths. Four externally
 usable EU gigafactories by 2029 receive only 39\% because the program targets at
 most five and construction begins from 2027.\src{16,17,18}
 
+\vfill
 \tighthead{4. The AI capex boom is simultaneously demand and supply policy}
 Hyperscaler capex supports near-term growth before the systems prove their
 revenue yield. Bridgewater estimates a large 2026--27 U.S. growth contribution,
@@ -262,20 +282,23 @@ F03. It also creates the key downside: if inference demand or monetization
 disappoints, cancellations propagate through power, chips, and construction
 well before software capability reverses.
 
-\vspace{3pt}
-\begin{tabularx}{\textwidth}{@{}>{\bfseries\color{blue}}p{0.19\textwidth}X>{\bfseries\color{red}}p{0.19\textwidth}X@{}}
-What scales quickly & software capability, model access, trade rerouting &
-What scales slowly & grids, refineries, skills, institutions\\
-What policy can buy & redundant plant, inventory, demand guarantees &
-What policy cannot buy & tacit know-how, utilization, trust, productivity\\
+\vfill
+\begingroup
+\renewcommand{\arraystretch}{1.42}
+\begin{tabularx}{\textwidth}{@{}>{\sffamily\bfseries}p{0.19\textwidth}X>{\sffamily\bfseries}p{0.19\textwidth}X@{}}
+\color{blue}Scales quickly & software capability, model access, trade rerouting &
+\color{ink}Scales slowly & grids, refineries, skills, institutions\\
+\color{red}Policy can buy & redundant plant, inventory, demand guarantees &
+\color{ink}Policy cannot buy & tacit know-how, utilization, trust, productivity\\
 \end{tabularx}
+\endgroup
 
 \newpage
 
 % PAGE 5 ---------------------------------------------------------------------
 \eyebrow{Part 2 --- Framework \& Holistic Synthesis}
 
-{\Large\bfseries Distribution, scenarios, and what would prove this wrong}
+\pagetitle{Distribution, scenarios, and falsification}
 
 \tighthead{Who wins}
 \begin{itemize}
@@ -351,7 +374,7 @@ lose as a bundle is only a story.
 % PAGE 6 ---------------------------------------------------------------------
 \eyebrow{Part 3 --- Analytical Appendix}
 
-{\Large\bfseries Method: calibrated judgment under correlated uncertainty}
+\pagetitle{Method: calibrated judgment under shared shocks}
 
 \tighthead{Evidence hierarchy}
 I used official realized data and contractual resolution sources first; audited
@@ -359,21 +382,22 @@ company disclosures second; peer-reviewed or high-quality working papers
 third; and interviews only as management/policy signals. Vendor claims were
 never treated as base rates. Every forecast was tested through four lenses:
 historical prior, current trend, policy execution, and the strongest plausible
-countercase. I reconciled them in log-odds space with a robust center, then
-forced cross-forecast consistency through the three macro scenarios below.
-This mirrors the useful elements of Bridgewater AIA Labs' search--reconcile--
-calibrate process without pretending that a small bespoke set supplies a
-statistical calibration sample.\src{6}
+countercase. Their robust log-odds center is a diagnostic anchor, not a second
+probability engine. I then specified conditionals inside three coherent macro
+worlds so that one forecast could not quietly assume a boom while another
+assumed a bust. This borrows the useful search--reconcile--calibrate discipline
+from Bridgewater AIA Labs without pretending that twelve bespoke questions
+form a statistical calibration sample.\src{6}
 
 \begin{center}
 \includegraphics[height=4.05in]{generated/scenario_heatmap.png}
 \end{center}
 \vspace{-7pt}
 
-The final probability is the 25/50/25 scenario-weighted mean, rounded to the
-nearest point. The scenario conditionals are judgments, not fitted likelihoods.
-This distinction matters: fake precision would be worse than transparent
-structure.
+The outlined final column is the 25/50/25 scenario-weighted mean, rounded to
+the nearest point. It remains close to the independent lens anchor for every
+forecast; the largest gap is six points. Conditionals are judgments, not fitted
+likelihoods. Transparent structure is preferable to fake precision.
 
 \tighthead{Correlation map and scoring discipline}
 \begin{tabularx}{\textwidth}{@{}>{\bfseries}p{0.21\textwidth}p{0.18\textwidth}X@{}}
@@ -402,7 +426,7 @@ information than twelve separate headlines suggest.
 % PAGE 7 ---------------------------------------------------------------------
 \eyebrow{Part 3 --- Analytical Appendix}
 
-{\Large\bfseries AI: capability outruns diffusion; diffusion outruns GDP}
+\pagetitle{AI: capability outruns diffusion; diffusion outruns GDP}
 
 \tighthead{F01 --- One-week task horizon (75\%)}
 METR's fitted trends have historically doubled the 50\% task horizon in roughly
@@ -415,6 +439,7 @@ and software benchmarks may not transfer to open-ended economic work.
 time exceeds one year through 2027; $+10$ if an independent suite validates a
 48-hour horizon by end-2027.
 
+\vfill
 \tighthead{F02 --- 35\% of firms using AI (64\%)}
 The redesigned Census question is broad but the denominator is demanding:
 18\% of firms used AI in a business function in late 2025/early 2026, versus
@@ -425,6 +450,7 @@ software support an S-curve; data, liability, and weak small-firm complements
 slow it. \textbf{Sensitivity:} $-12$ if BTOS remains below 23\% at end-2027;
 $+10$ if it clears 27\%.
 
+\vfill
 \tighthead{F03 --- Productivity above 2.25\% (46\%)}
 Task-level gains can be large, but aggregation multiplies them by adoption,
 task coverage, and reorganization. Recent executive surveys find little
@@ -435,6 +461,7 @@ captured in prices.\src{12} The downside is crowding out, transition costs, and
 labor-light capex. \textbf{Sensitivity:} F03 rises above 60\% only if both F02
 and broad workflow redesign accelerate by 2028.
 
+\vfill
 \tighthead{F04 --- \$1 trillion of four-firm capex (58\%)}
 The threshold requires high-teens annual growth from an already extraordinary
 2026 run rate. Demand visibility, competitive fear, and sovereign customers
@@ -444,6 +471,7 @@ about orders but structurally bullish, so their ``no bust'' claims receive low
 weight.\src{5,13,28} \textbf{Sensitivity:} $+12$ if the four companies' 2027
 guidance exceeds \$850 billion; $-20$ if two cut planned AI capacity.
 
+\vfill
 \tighthead{F05 --- Data centers above 12\% of U.S. power (52\%)}
 DOE/LBNL's 2030 central estimate is 11.8\%, with a 9.5--15.3\% range.\src{14}
 The forecast sits just above the midpoint on purpose: capex evidence has moved
@@ -458,7 +486,7 @@ inference; the net sign is genuinely close.
 % PAGE 8 ---------------------------------------------------------------------
 \eyebrow{Part 3 --- Analytical Appendix}
 
-{\Large\bfseries The physical stack: capacity is not sovereignty}
+\pagetitle{The physical stack: capacity is not sovereignty}
 
 \tighthead{F06 --- Three U.S. advanced-node operators (78\%)}
 This is a count of corporate operators, not fabs. Intel reported 18A in
@@ -471,6 +499,7 @@ therefore demands commercial production but not cost parity or a large global
 share. \textbf{Sensitivity:} $-18$ if Samsung Taylor has not begun commercial
 production by end-2027.
 
+\vfill
 \tighthead{F07 --- Four operational EU gigafactories (39\%)}
 The EU has demonstrated that it can launch smaller AI Factories, but the
 gigafactory target is up to five, with roughly EUR20 billion to mobilize and
@@ -482,6 +511,7 @@ that Europe builds nothing; two or three operational sites would still be a
 major strategic shift. \textbf{Sensitivity:} $+20$ if four projects reach
 financial close and energization contracts by mid-2027.
 
+\vfill
 \tighthead{F08 --- Refining concentration above 65\% (83\%)}
 The average leading-country share across the fixed six-mineral basket was about
 72\% in 2025 excluding rare earths, up from 70\% in 2023.\src{19} Announced
@@ -494,6 +524,7 @@ possible, but it requires several projects to operate, not merely close
 financing. \textbf{Sensitivity:} $-15$ if the same-basket average is below 68\%
 in the IEA's 2028 report.
 
+\vfill
 \tighthead{Why the three forecasts do not conflict}
 F06 predicts geographic duplication in the highest-value semiconductor stage.
 F08 predicts persistence of concentration deeper in the material stack. Both
@@ -502,10 +533,12 @@ readily than reproduce every refinery, equipment vendor, supplier network, and
 skill base feeding them. F07 is lower because Europe is attempting several
 gates simultaneously while starting from a compute and energy disadvantage.
 
-\vspace{4pt}
-\begin{tabularx}{\textwidth}{@{}>{\bfseries}p{0.20\textwidth}XXX@{}}
+\vfill
+\begingroup
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{@{}>{\sffamily\bfseries}p{0.20\textwidth}XXX@{}}
 \toprule
-Test & F06 U.S. fabs & F07 EU compute & F08 minerals\\
+Test & \textbf{F06 U.S. fabs} & \textbf{F07 EU compute} & \textbf{F08 minerals}\\
 \midrule
 Money committed & strong & meaningful & rising\\
 Execution chain & medium & long & very long\\
@@ -513,13 +546,14 @@ Incumbent cost gap & manageable & material & often extreme\\
 Resolution requires & production & external workloads & global share loss\\
 \bottomrule
 \end{tabularx}
+\endgroup
 
 \newpage
 
 % PAGE 9 ---------------------------------------------------------------------
 \eyebrow{Part 3 --- Analytical Appendix}
 
-{\Large\bfseries Trade: rerouting is not rebalancing}
+\pagetitle{Trade: rerouting is not rebalancing}
 
 \tighthead{F09 --- China's trillion-dollar surplus twice (68\%)}
 China's 2025 goods surplus was roughly \$1.2 trillion. Industrial depth, weak
@@ -532,6 +566,7 @@ rate adjustment, and partner restrictions could compress external imbalance.
 noise. \textbf{Sensitivity:} $-15$ if China's 2027 surplus is below \$800
 billion alongside a rising household-consumption share.
 
+\vfill
 \tighthead{F10 --- MFN trade share at or below 65\% (57\%)}
 The WTO estimates that MFN treatment covered 80\% of merchandise trade in 2024
 but about 72\% by early 2026. The decline mixes punitive tariffs with
@@ -542,6 +577,7 @@ counterforce: they represented one-sixth of trade but 42\% of 2025 trade growth
 and were often exempt from new tariffs. This is why F10 is 57\%, not a
 straight-line 80\%.
 
+\vfill
 \tighthead{F11 --- Appellate Body still below quorum (82\%)}
 The body has been unable to hear new appeals since December 2019. Interim
 arbitration can reduce pressure to solve the underlying appointment dispute,
@@ -551,6 +587,7 @@ roster makes this the cleanest institutional forecast: alternative mechanisms
 do not count. \textbf{Sensitivity:} $-25$ on a U.S.-backed appointments
 agreement with implementation dates before 2029.
 
+\vfill
 \tighthead{F12 --- U.S. effective tariff at least 8\% (72\%)}
 The relevant rate is cash duties divided by customs value, not an announced
 headline. The 2026 policy baseline is already above the pre-2025 norm, and
@@ -561,31 +598,20 @@ Historical evidence finds rapid import contraction and substantial importer
 burden after large tariffs; economic cost does not guarantee political
 reversal.\src{27}
 
-\tighthead{Joint interpretation}
-\begin{tabularx}{\textwidth}{@{}>{\bfseries}p{0.23\textwidth}X@{}}
-\toprule
-Observed outcome & What it would mean\\
-\midrule
-F09 Yes, F10/F12 No & Chinese imbalance persisted, but rerouting and domestic
-weakness mattered more than global rule fragmentation.\\
-F10/F12 Yes, F09 No & Protection and trusted lanes worked faster than China's
-domestic rebalancing failed.\\
-F11 Yes, F10 No & Institutional paralysis persisted while firms and states
-adapted without further aggregate discrimination.\\
-All four Yes & The assured-access regime became self-reinforcing: imbalance,
-discrimination, tariffs, and weak adjudication moved together.\\
-\bottomrule
-\end{tabularx}
+\vfill
+\begin{center}
+\includegraphics[width=\textwidth]{generated/trade_matrix.png}
+\end{center}
 
 \newpage
 
 % PAGE 10 --------------------------------------------------------------------
 \eyebrow{Resolution Registry and Selected Sources}
 
-{\Large\bfseries Resolve the words, not the narrative}
+\pagetitle{Resolve the words, not the narrative}
 \vspace{2pt}
 
-{\fontsize{7.4}{8.65}\selectfont
+{\fontsize{8.0}{9.3}\selectfont
 \begin{multicols}{2}
 \raggedcolumns
 
@@ -655,7 +681,7 @@ downloaded 2030-06-30; Yes at $\geq8.000\%$.
 
 \textbf{[6]} Bridgewater AIA Labs, \href{https://arxiv.org/abs/2511.07678}{AIA Forecaster Technical Report}, 2025.
 
-\textbf{[7]} METR, \href{https://metr.org/time-horizons/}{Task-Completion Time Horizons}, May 2026.
+\textbf{[7]} METR, \href{https://metr.org/time-horizons/}{Task-Completion Time Horizons} and 2026 measurement-limitations notes.
 
 \textbf{[8]} Bonney et al., \href{https://www.nber.org/papers/w35141}{The Microstructure of AI Diffusion}, NBER 35141, 2026; U.S. Census BTOS.
 
@@ -681,7 +707,7 @@ downloaded 2030-06-30; Yes at $\geq8.000\%$.
 
 \textbf{[19]} IEA, \href{https://www.iea.org/reports/global-critical-minerals-outlook-2026/executive-summary}{Global Critical Minerals Outlook 2026}.
 
-\textbf{[20]} WTO, \href{https://www.wto.org/english/news_e/news26_e/stat_19mar26_329_e.htm}{Global Trade Outlook and Statistics}, Mar.\ 2026; WTO MFN-share dataset.
+\textbf{[20]} WTO, \href{https://www.wto.org/english/news_e/news26_e/stat_19mar26_329_e.htm}{Global Trade Outlook and Statistics}, Mar.\ 2026; \href{https://data.wto.org/en/dataset/mfnshare}{MFN trade-share dataset}.
 
 \textbf{[21]} Alfaro and Chor, \href{https://www.nber.org/papers/w34490}{An Anatomy of the Great Reallocation}, NBER 34490, 2025/26.
 

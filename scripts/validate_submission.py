@@ -12,8 +12,10 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 FORECASTS = ROOT / "data" / "final_forecasts.csv"
+CANDIDATES = ROOT / "data" / "forecast_candidates.csv"
 SCENARIOS = ROOT / "data" / "scenario_matrix.csv"
 RESOLUTIONS = ROOT / "research" / "resolution_registry.md"
+SOURCES = ROOT / "research" / "source_ledger.csv"
 TEX = ROOT / "submission.tex"
 DELIVERABLE = ROOT / "deliverable"
 BUILD = ROOT / "build"
@@ -73,6 +75,14 @@ def main() -> None:
         require(row["forecast_sentence"].endswith("."), f"{row['id']} lacks terminal period")
         require(int(row["horizon"]) <= 2030, f"{row['id']} exceeds five-year event horizon")
 
+    with CANDIDATES.open(encoding="utf-8", newline="") as handle:
+        candidates = list(csv.DictReader(handle))
+    require(len(candidates) == len(forecasts), "Candidate/final row mismatch")
+    for candidate, forecast in zip(candidates, forecasts):
+        require(candidate["id"] == forecast["id"], "Candidate order mismatch")
+        require(candidate["horizon"] == forecast["horizon"], "Candidate horizon mismatch")
+        require(candidate["status"] == "selected", f"{candidate['id']} is not selected")
+
     with SCENARIOS.open(encoding="utf-8", newline="") as handle:
         scenario_rows = list(csv.DictReader(handle))
     require(len(scenario_rows) == len(forecasts), "Scenario/forecast row mismatch")
@@ -91,6 +101,16 @@ def main() -> None:
     resolution_text = RESOLUTIONS.read_text(encoding="utf-8")
     for forecast_id in expected_ids:
         require(f"**{forecast_id}." in resolution_text, f"Missing {forecast_id} resolution")
+
+    with SOURCES.open(encoding="utf-8", newline="") as handle:
+        sources = list(csv.DictReader(handle))
+    require(len(sources) >= 30, "Source ledger is unexpectedly thin")
+    require(len({row["id"] for row in sources}) == len(sources), "Duplicate source ID")
+    expected_source_ids = [f"S{number:02d}" for number in range(1, len(sources) + 1)]
+    require(
+        [row["id"] for row in sources] == expected_source_ids,
+        "Source IDs are not contiguous",
+    )
 
     info = command_text("pdfinfo", str(pdf))
     pages_match = re.search(r"^Pages:\s+(\d+)$", info, flags=re.MULTILINE)
@@ -124,6 +144,8 @@ def main() -> None:
 
     tex_text = TEX.read_text(encoding="utf-8")
     is_draft = "\\drafttrue" in tex_text
+    if is_draft:
+        require("AUTHOR REVIEW DRAFT" in all_text, "Draft watermark is missing")
     if not args.allow_draft:
         require(not is_draft, "Draft mode is still enabled")
         require("AUTHOR REVIEW DRAFT" not in all_text, "Draft watermark remains")
@@ -133,6 +155,7 @@ def main() -> None:
     print(f"PASS: {pdf.name}")
     print(f"mode: {mode}")
     print(f"forecasts: {len(forecasts)}")
+    print(f"sources: {len(sources)}")
     print("pages: 10")
     print(f"sha256: {digest}")
 

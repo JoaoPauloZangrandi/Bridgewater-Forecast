@@ -1,7 +1,8 @@
-"""Reconcile independent forecast lenses and check the scenario mixture.
+"""Audit lens anchors, scenario conditionals, and final probabilities.
 
-This is a decision aid, not a substitute for the entrant's judgment. Each
-component probability must be defended from the source ledger before use.
+The four-lens anchor screens for an incoherent starting point. Final
+probabilities come from the scenario mixture because it preserves dependence
+across forecasts. Neither calculation is a fitted statistical model.
 """
 
 from __future__ import annotations
@@ -14,6 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 INPUT = ROOT / "data" / "forecast_candidates.csv"
 SCENARIOS = ROOT / "data" / "scenario_matrix.csv"
+FINAL = ROOT / "data" / "final_forecasts.csv"
 OUTPUT = ROOT / "generated" / "calibration_table.tex"
 
 
@@ -39,7 +41,7 @@ def reconcile(probabilities: list[float]) -> float:
 
 
 def main() -> None:
-    rows: list[dict[str, str]] = []
+    candidates: list[dict[str, str]] = []
     with INPUT.open(encoding="utf-8", newline="") as handle:
         for row in csv.DictReader(handle):
             values = [
@@ -48,48 +50,64 @@ def main() -> None:
                 float(row["policy_view"]),
                 float(row["counter_view"]),
             ]
-            row["model_probability"] = f"{100 * reconcile(values):.0f}"
-            rows.append(row)
-
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    lines = [
-        r"\begin{tabular}{llrrrrr}",
-        r"\toprule",
-        r"ID & Cluster & Prior & Trend & Policy & Counter & Model \\",
-        r"\midrule",
-    ]
-    for row in rows:
-        lines.append(
-            f"{row['id']} & {row['cluster'].replace('_', ' ')} & "
-            f"{100 * float(row['prior']):.0f} & "
-            f"{100 * float(row['trend_view']):.0f} & "
-            f"{100 * float(row['policy_view']):.0f} & "
-            f"{100 * float(row['counter_view']):.0f} & "
-            f"{row['model_probability']} \\\\"
-        )
-    lines.extend([r"\bottomrule", r"\end{tabular}"])
-    OUTPUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
-
-    for row in rows:
-        print(f"{row['id']}: {row['model_probability']}%")
+            row["lens_anchor"] = f"{100 * reconcile(values):.0f}"
+            candidates.append(row)
 
     with SCENARIOS.open(encoding="utf-8", newline="") as handle:
         scenarios = list(csv.DictReader(handle))
+    with FINAL.open(encoding="utf-8", newline="") as handle:
+        final_rows = list(csv.DictReader(handle))
 
-    print("\nScenario-mixture audit (25% / 50% / 25%):")
-    for row in scenarios:
-        calculated = (
-            0.25 * float(row["abundant_intelligence"])
-            + 0.50 * float(row["bottlenecked_boom"])
-            + 0.25 * float(row["capex_retrenchment"])
+    if not (len(candidates) == len(scenarios) == len(final_rows)):
+        raise ValueError("Candidate, scenario, and final tables differ in length")
+
+    lines = [
+        r"\begin{tabular}{llrrrr}",
+        r"\toprule",
+        r"ID & Cluster & Lens anchor & Scenario mix & Final & Gap \\",
+        r"\midrule",
+    ]
+
+    print("Probability audit:")
+    for candidate, scenario, final in zip(candidates, scenarios, final_rows):
+        forecast_id = candidate["id"]
+        if not (forecast_id == scenario["id"] == final["id"]):
+            raise ValueError(f"Forecast ordering mismatch at {forecast_id}")
+
+        scenario_mix = (
+            0.25 * float(scenario["abundant_intelligence"])
+            + 0.50 * float(scenario["bottlenecked_boom"])
+            + 0.25 * float(scenario["capex_retrenchment"])
         )
-        recorded = float(row["mixture_probability"])
-        if abs(calculated - recorded) > 0.51:
+        recorded_mix = float(scenario["mixture_probability"])
+        final_probability = float(final["probability"])
+        if abs(scenario_mix - recorded_mix) > 0.51:
             raise ValueError(
-                f"{row['id']}: recorded {recorded:.0f} differs from "
-                f"mixture {calculated:.1f}"
+                f"{forecast_id}: recorded mixture {recorded_mix:.0f} differs "
+                f"from calculated mixture {scenario_mix:.1f}"
             )
-        print(f"{row['id']}: mixture={calculated:.1f}%, recorded={recorded:.0f}%")
+        if abs(final_probability - recorded_mix) > 0.01:
+            raise ValueError(
+                f"{forecast_id}: final {final_probability:.0f} differs from "
+                f"recorded mixture {recorded_mix:.0f}"
+            )
+
+        lens_anchor = float(candidate["lens_anchor"])
+        gap = final_probability - lens_anchor
+        print(
+            f"{forecast_id}: lens={lens_anchor:.0f}%, "
+            f"scenario={scenario_mix:.1f}%, final={final_probability:.0f}%, "
+            f"gap={gap:+.0f}pp"
+        )
+        lines.append(
+            f"{forecast_id} & {candidate['cluster'].replace('_', ' ')} & "
+            f"{lens_anchor:.0f} & {scenario_mix:.1f} & "
+            f"{final_probability:.0f} & {gap:+.0f} \\\\"
+        )
+
+    lines.extend([r"\bottomrule", r"\end{tabular}"])
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":
