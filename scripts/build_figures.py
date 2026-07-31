@@ -19,15 +19,13 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "generated"
 SCENARIOS = ROOT / "data" / "scenario_matrix.csv"
 
-INK = "#172733"
-MUTED = "#66757d"
-BLUE = "#276a8a"
-TEAL = "#2b7a72"
-GOLD = "#ad761f"
-RED = "#af4b42"
-PAPER = "#f6f7f4"
-PANEL = "#edf1f0"
-GRID = "#d4dcde"
+INK = "#202829"
+MUTED = "#687170"
+ACCENT = "#145c58"
+COPPER = "#a36a32"
+RUST = "#a2473d"
+PALE = "#eaf0ee"
+GRID = "#d5dcda"
 WHITE = "#ffffff"
 
 
@@ -37,108 +35,100 @@ def save(fig: plt.Figure, filename: str) -> None:
         OUT / filename,
         dpi=220,
         bbox_inches="tight",
-        facecolor=PAPER,
+        facecolor=WHITE,
         pad_inches=0.04,
     )
     plt.close(fig)
 
 
 def causal_loop() -> None:
-    fig, ax = plt.subplots(figsize=(10.6, 3.9), facecolor=PAPER)
-    ax.set_facecolor(PAPER)
+    fig, ax = plt.subplots(figsize=(10.6, 3.35), facecolor=WHITE)
+    ax.set_facecolor(WHITE)
     ax.set_xlim(0, 10.6)
-    ax.set_ylim(0, 3.9)
+    ax.set_ylim(0, 3.35)
     ax.axis("off")
 
     nodes = [
-        (0.12, 2.16, 1.82, 0.88, "AI capability\nand diffusion", BLUE),
-        (2.25, 2.16, 1.82, 0.88, "Compute, power,\nmineral demand", TEAL),
-        (4.38, 2.16, 1.82, 0.88, "Chokepoint rents\nand dependence", GOLD),
-        (6.51, 2.16, 1.82, 0.88, "Subsidies, controls,\nlocalization", RED),
-        (8.64, 2.16, 1.82, 0.88, "Duplicated capacity\nand higher cost", INK),
+        (0.85, "AI capability\nand diffusion"),
+        (3.08, "Compute, power,\nand mineral demand"),
+        (5.30, "Chokepoint rents\nand dependence"),
+        (7.52, "Subsidies, controls,\nand localization"),
+        (9.75, "Duplicated capacity\nand higher cost"),
     ]
-    for x, y, w, h, label, color in nodes:
-        ax.add_patch(
-            patches.FancyBboxPatch(
-                (x, y),
-                w,
-                h,
-                boxstyle="round,pad=0.02,rounding_size=0.035",
-                linewidth=0.8,
-                edgecolor=GRID,
-                facecolor=WHITE,
-            )
-        )
-        ax.add_patch(
-            patches.Rectangle(
-                (x, y + h - 0.07),
-                w,
-                0.07,
-                linewidth=0,
-                facecolor=color,
-            )
-        )
+    for idx, (x, label) in enumerate(nodes, start=1):
+        ax.add_patch(patches.Circle((x, 1.72), 0.24, facecolor=ACCENT, edgecolor="none"))
         ax.text(
-            x + w / 2,
-            y + h / 2 - 0.01,
-            label,
+            x,
+            1.72,
+            f"{idx:02d}",
             ha="center",
             va="center",
-            color=INK,
-            fontsize=9.1,
+            color=WHITE,
+            fontsize=8.5,
             fontweight="bold",
+        )
+        ax.text(
+            x,
+            1.20,
+            label,
+            ha="center",
+            va="top",
+            color=INK,
+            fontsize=8.6,
+            fontweight="bold",
+            linespacing=1.18,
         )
 
     for idx in range(len(nodes) - 1):
-        x1, y1, w1, h1, *_ = nodes[idx]
-        x2, y2, *_ = nodes[idx + 1]
+        x1, _ = nodes[idx]
+        x2, _ = nodes[idx + 1]
         ax.annotate(
             "",
-            xy=(x2 - 0.05, y2 + 0.44),
-            xytext=(x1 + w1 + 0.05, y1 + 0.44),
-            arrowprops=dict(arrowstyle="-|>", color=MUTED, lw=1.1),
+            xy=(x2 - 0.29, 1.72),
+            xytext=(x1 + 0.29, 1.72),
+            arrowprops=dict(arrowstyle="-|>", color=MUTED, lw=1.0),
         )
 
     ax.annotate(
         "",
-        xy=(1.02, 2.08),
-        xytext=(9.48, 2.08),
+        xy=(0.88, 2.03),
+        xytext=(9.72, 2.03),
         arrowprops=dict(
             arrowstyle="-|>",
-            color=RED,
-            lw=1.35,
-            connectionstyle="arc3,rad=-0.34",
+            color=COPPER,
+            lw=1.25,
+            connectionstyle="arc3,rad=0.28",
         ),
     )
     ax.text(
         5.30,
-        0.45,
-        "REINFORCING LOOP  |  Strategic rivalry raises the option value of domestic capacity",
+        3.10,
+        "REINFORCING LOOP  /  Strategic rivalry raises the option value of domestic capacity",
         ha="center",
-        color=RED,
-        fontsize=8.2,
+        color=COPPER,
+        fontsize=8.0,
         fontweight="bold",
     )
 
     ax.annotate(
         "",
-        xy=(2.50, 3.12),
-        xytext=(8.82, 3.12),
+        xy=(3.05, 0.77),
+        xytext=(9.70, 0.77),
         arrowprops=dict(
             arrowstyle="-|>",
-            color=BLUE,
+            color=MUTED,
             lw=1.1,
             linestyle="--",
-            connectionstyle="arc3,rad=0.13",
+            connectionstyle="arc3,rad=-0.15",
         ),
     )
     ax.text(
-        5.63,
-        3.73,
-        "COUNTER-LOOP  |  Efficiency, substitution, and weak returns reduce resource intensity",
+        6.35,
+        0.13,
+        "COUNTER-LOOP  /  Efficiency, substitution, and weak returns reduce resource intensity",
         ha="center",
-        color=BLUE,
-        fontsize=8.1,
+        color=MUTED,
+        fontsize=7.8,
         fontweight="bold",
     )
     save(fig, "causal_loop.png")
@@ -162,12 +152,12 @@ def scenario_heatmap() -> None:
     )
 
     cmap = LinearSegmentedColormap.from_list(
-        "assured_access",
-        [BLUE, "#b8d2d7", PAPER, "#efd19d", RED],
+        "institutional_teal",
+        ["#f3f6f5", "#d8e5e2", "#8eb6af", ACCENT],
         N=256,
     )
-    fig, ax = plt.subplots(figsize=(7.8, 5.55), facecolor=PAPER)
-    ax.set_facecolor(PAPER)
+    fig, ax = plt.subplots(figsize=(7.8, 5.55), facecolor=WHITE)
+    ax.set_facecolor(WHITE)
     ax.imshow(matrix, cmap=cmap, vmin=10, vmax=95, aspect="auto")
     ax.set_xticks(range(4))
     ax.set_xticklabels(
@@ -194,12 +184,12 @@ def scenario_heatmap() -> None:
                 f"{value:.0f}",
                 ha="center",
                 va="center",
-                color=WHITE if value < 34 or value > 78 else INK,
+                color=WHITE if value > 72 else INK,
                 fontsize=8.3 if col_idx == 3 else 8.0,
                 fontweight="bold",
             )
 
-    ax.axvline(2.5, color=INK, linewidth=1.2)
+    ax.axvline(2.5, color=ACCENT, linewidth=1.25)
     ax.add_patch(
         patches.Rectangle(
             (2.5, -0.5),
@@ -207,7 +197,7 @@ def scenario_heatmap() -> None:
             len(ids),
             fill=False,
             linewidth=1.2,
-            edgecolor=INK,
+            edgecolor=ACCENT,
         )
     )
     for boundary in (4.5, 7.5):
@@ -216,10 +206,10 @@ def scenario_heatmap() -> None:
     for spine in ax.spines.values():
         spine.set_visible(False)
     ax.set_title(
-        "Scenario conditionals and the portfolio-consistent final probability (%)",
+        "EXHIBIT 3  /  SCENARIO CONDITIONALS AND FINAL PROBABILITY (%)",
         loc="left",
         fontsize=10.0,
-        color=INK,
+        color=ACCENT,
         fontweight="bold",
         pad=10,
     )
@@ -236,120 +226,115 @@ def scenario_heatmap() -> None:
 
 
 def evidence_dashboard() -> None:
-    fig, axes = plt.subplots(2, 2, figsize=(10.6, 4.25), facecolor=PAPER)
-    fig.subplots_adjust(wspace=0.08, hspace=0.18)
+    fig, ax = plt.subplots(figsize=(10.6, 4.15), facecolor=WHITE)
+    ax.set_facecolor(WHITE)
+    ax.set_xlim(0, 10.6)
+    ax.set_ylim(0, 4.15)
+    ax.axis("off")
 
     panels = [
-        ("F02", "U.S. firms using AI", 64, 18, 35, 0, 45, "2025/26 actual", "YES if >= 35%", BLUE),
-        ("F05", "U.S. data-center power", 52, 11.8, 12, 0, 16, "2030 DOE midpoint", "YES if > 12%", TEAL),
-        ("F08", "Top-country refiner share", 83, 72, 65, 40, 80, "2025 actual", "YES if > 65%", GOLD),
-        ("F10", "Trade on MFN terms", 57, 72, 65, 40, 85, "early-2026 actual", "YES if <= 65%", RED),
+        ("F02", "U.S. firms using AI", 64, 18, 35, 0, 45, "2025/26 actual", "YES if >= 35%"),
+        ("F05", "U.S. data-center power", 52, 11.8, 12, 0, 16, "2030 DOE midpoint", "YES if > 12%"),
+        ("F08", "Top-country refiner share", 83, 72, 65, 40, 80, "2025 actual", "YES if > 65%"),
+        ("F10", "Trade on MFN terms", 57, 72, 65, 40, 85, "early-2026 actual", "YES if <= 65%"),
     ]
 
-    for ax, panel in zip(axes.flat, panels):
-        forecast_id, title, probability, base, threshold, low, high, base_label, threshold_label, color = panel
-        ax.set_facecolor(PANEL)
-        ax.set_xlim(low, high)
-        ax.set_ylim(0, 1)
-        ax.hlines(0.42, low, high, color=GRID, linewidth=5)
-        ax.scatter(base, 0.42, s=86, color=color, zorder=3)
+    ax.text(
+        0.0,
+        4.02,
+        "EXHIBIT 1  /  STARTING POINT VERSUS RESOLUTION THRESHOLD",
+        color=ACCENT,
+        fontsize=9.2,
+        fontweight="bold",
+        va="top",
+    )
+    ax.plot([0, 10.6], [3.78, 3.78], color=ACCENT, lw=0.9)
+
+    for idx, panel in enumerate(panels):
+        forecast_id, title, probability, base, threshold, low, high, base_label, threshold_label = panel
+        y = 3.18 - idx * 0.86
+        x0, x1 = 4.15, 8.95
+        base_x = x0 + (base - low) / (high - low) * (x1 - x0)
+        threshold_x = x0 + (threshold - low) / (high - low) * (x1 - x0)
+
+        ax.text(0.0, y + 0.13, forecast_id, color=ACCENT, fontsize=8.0, fontweight="bold")
+        ax.text(0.48, y + 0.13, title, color=INK, fontsize=9.4, fontweight="bold")
+        ax.plot([x0, x1], [y, y], color=GRID, linewidth=2.6, solid_capstyle="round")
+        ax.scatter(base_x, y, s=58, color=ACCENT, zorder=3)
         ax.scatter(
-            threshold,
-            0.42,
-            s=110,
+            threshold_x,
+            y,
+            s=105,
             marker="|",
-            linewidth=3.2,
+            linewidth=2.6,
             color=INK,
             zorder=4,
         )
         ax.text(
-            base,
-            0.61,
+            base_x,
+            y + 0.18,
             f"{base:g}%",
             ha="center",
-            fontsize=10.0,
-            color=color,
+            fontsize=8.6,
+            color=ACCENT,
             fontweight="bold",
         )
         ax.text(
-            threshold,
-            0.19,
+            threshold_x,
+            y - 0.20,
             f"{threshold:g}%",
             ha="center",
-            fontsize=9.3,
+            fontsize=8.2,
             color=INK,
             fontweight="bold",
         )
         ax.text(
-            0.03,
-            0.91,
-            forecast_id,
-            transform=ax.transAxes,
-            fontsize=7.2,
-            color=color,
-            va="center",
-            fontweight="bold",
-        )
-        ax.text(
-            0.13,
-            0.91,
-            title,
-            transform=ax.transAxes,
-            fontsize=9.2,
-            color=INK,
-            va="center",
-            fontweight="bold",
-        )
-        ax.text(
-            0.97,
-            0.91,
-            f"P(YES) {probability}%",
-            transform=ax.transAxes,
-            fontsize=8.1,
-            color=color,
-            ha="right",
-            va="center",
-            fontweight="bold",
-        )
-        ax.text(
-            0.03,
-            0.04,
-            f"ANCHOR  {base_label}",
-            transform=ax.transAxes,
-            fontsize=6.7,
+            x0,
+            y - 0.29,
+            base_label.upper(),
+            fontsize=6.6,
             color=MUTED,
-            va="bottom",
+            va="top",
         )
         ax.text(
-            0.97,
-            0.04,
+            x1,
+            y - 0.29,
             threshold_label,
-            transform=ax.transAxes,
-            fontsize=6.7,
+            fontsize=6.6,
             color=MUTED,
             ha="right",
-            va="bottom",
+            va="top",
         )
-        ax.set_yticks([])
-        ax.set_xticks([])
-        for spine in ax.spines.values():
-            spine.set_visible(False)
+        ax.text(
+            10.55,
+            y + 0.03,
+            f"{probability}%",
+            fontsize=11.2,
+            color=ACCENT,
+            ha="right",
+            va="center",
+            fontweight="bold",
+        )
+        ax.text(10.55, y - 0.19, "P(YES)", fontsize=6.5, color=MUTED, ha="right")
+
+        if idx < len(panels) - 1:
+            ax.plot([0, 10.6], [y - 0.51, y - 0.51], color=GRID, lw=0.55)
 
     save(fig, "evidence_dashboard.png")
 
 
 def trade_matrix() -> None:
-    fig, ax = plt.subplots(figsize=(10.6, 3.55), facecolor=PAPER)
-    ax.set_facecolor(PAPER)
+    fig, ax = plt.subplots(figsize=(10.6, 3.55), facecolor=WHITE)
+    ax.set_facecolor(WHITE)
     ax.set_xlim(-0.22, 2.05)
     ax.set_ylim(-0.22, 2.35)
     ax.axis("off")
 
     quadrants = [
-        (0, 0, "#eef3f3", "REBALANCING", "Lower surplus;\nlimited discrimination", TEAL),
-        (1, 0, "#f5eee7", "POLICY TRACTION", "Protection rises;\nChina's surplus falls", GOLD),
-        (0, 1, "#edf2f5", "REROUTING", "Surplus persists;\nuniversal rules stabilize", BLUE),
-        (1, 1, "#f5eae7", "ASSURED-ACCESS REGIME", "Imbalance and discrimination\nreinforce each other", RED),
+        (0, 0, WHITE, "REBALANCING", "Lower surplus;\nlimited discrimination", MUTED),
+        (1, 0, WHITE, "POLICY TRACTION", "Protection rises;\nChina's surplus falls", MUTED),
+        (0, 1, WHITE, "REROUTING", "Surplus persists;\nuniversal rules stabilize", MUTED),
+        (1, 1, PALE, "ASSURED-ACCESS REGIME", "Imbalance and discrimination\nreinforce each other", ACCENT),
     ]
     for x, y, face, title, body, color in quadrants:
         ax.add_patch(
@@ -357,16 +342,16 @@ def trade_matrix() -> None:
                 (x, y),
                 1,
                 1,
-                linewidth=0.8,
-                edgecolor=WHITE,
+                linewidth=0.7,
+                edgecolor=GRID,
                 facecolor=face,
             )
         )
         ax.add_patch(
             patches.Rectangle(
                 (x + 0.06, y + 0.81),
-                0.16,
-                0.035,
+                0.22,
+                0.025,
                 linewidth=0,
                 facecolor=color,
             )
@@ -385,8 +370,8 @@ def trade_matrix() -> None:
             y + 0.37,
             body,
             color=INK,
-            fontsize=9.0,
-            fontweight="bold",
+            fontsize=8.8,
+            fontweight="normal",
             va="center",
             linespacing=1.25,
         )
@@ -394,7 +379,7 @@ def trade_matrix() -> None:
     ax.text(
         1.0,
         -0.12,
-        "RULE FRAGMENTATION  |  F10 + F12",
+        "RULE FRAGMENTATION  /  F10 + F12",
         ha="center",
         va="center",
         color=INK,
@@ -404,7 +389,7 @@ def trade_matrix() -> None:
     ax.text(
         -0.14,
         1.0,
-        "CHINA SURPLUS  |  F09",
+        "CHINA SURPLUS  /  F09",
         ha="center",
         va="center",
         rotation=90,
@@ -415,8 +400,8 @@ def trade_matrix() -> None:
     ax.text(
         0.0,
         2.23,
-        "JOINT OUTCOME MAP",
-        color=BLUE,
+        "EXHIBIT 4  /  JOINT OUTCOME MAP",
+        color=ACCENT,
         fontsize=7.5,
         fontweight="bold",
         va="center",

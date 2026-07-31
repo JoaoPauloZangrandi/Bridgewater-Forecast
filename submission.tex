@@ -1,6 +1,6 @@
 \documentclass[10pt,letterpaper]{article}
 
-\usepackage[letterpaper,top=0.54in,bottom=0.52in,left=0.58in,right=0.58in]{geometry}
+\usepackage[letterpaper,top=0.58in,bottom=0.54in,left=0.68in,right=0.68in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
@@ -18,30 +18,27 @@
 \usepackage{ragged2e}
 \usepackage{setspace}
 
-\definecolor{ink}{HTML}{172733}
-\definecolor{muted}{HTML}{66757D}
-\definecolor{blue}{HTML}{276A8A}
-\definecolor{teal}{HTML}{2B7A72}
-\definecolor{gold}{HTML}{AD761F}
-\definecolor{red}{HTML}{AF4B42}
-\definecolor{rule}{HTML}{D4DCDE}
-\definecolor{paper}{HTML}{F6F7F4}
-\definecolor{panel}{HTML}{EDF1F0}
-\definecolor{bluepale}{HTML}{EAF1F4}
-\definecolor{redpale}{HTML}{F4EDEB}
+\definecolor{ink}{HTML}{202829}
+\definecolor{muted}{HTML}{687170}
+\definecolor{accent}{HTML}{145C58}
+\definecolor{cover}{HTML}{173F3D}
+\definecolor{copper}{HTML}{A36A32}
+\definecolor{draftred}{HTML}{A2473D}
+\definecolor{rule}{HTML}{D5DCDA}
+\definecolor{pale}{HTML}{EAF0EE}
 
 \hypersetup{
   colorlinks=true,
-  linkcolor=blue,
-  urlcolor=blue,
-  citecolor=blue,
+  linkcolor=accent,
+  urlcolor=accent,
+  citecolor=accent,
   pdfauthor={Joao Paulo Zangrandi},
   pdftitle={The Assured-Access Economy: Forecasting the Collision of AI and Modern Mercantilism}
 }
 \urlstyle{same}
 
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{3.2pt}
+\setlength{\parskip}{3.0pt}
 \setlength{\columnsep}{0.22in}
 \setlist[itemize]{leftmargin=1.15em,itemsep=1.4pt,topsep=2pt}
 \setlist[enumerate]{leftmargin=1.35em,itemsep=1.8pt,topsep=2pt}
@@ -51,96 +48,106 @@
 \fancyhf{}
 \newif\ifdraft
 \drafttrue
-\fancyhead[L]{\sffamily\scriptsize\color{muted}\textbf{FORECASTING THE FUTURE 2026}}
-\fancyhead[R]{\sffamily\scriptsize\color{muted}JOAO PAULO ZANGRANDI}
-\fancyfoot[C]{\sffamily\scriptsize\color{muted}\thepage\ /\ 10}
+\fancyhead[L]{\sffamily\fontsize{7.2}{8}\selectfont\color{muted}\textbf{FORECASTING THE FUTURE 2026}\quad/\quad RESEARCH NOTE}
+\fancyhead[R]{\sffamily\fontsize{7.2}{8}\selectfont\color{muted}INFORMATION CUTOFF: JULY 30, 2026}
+\fancyfoot[R]{\sffamily\scriptsize\color{muted}\thepage\ /\ 10}
 \ifdraft
-  \fancyfoot[L]{\sffamily\scriptsize\color{red}\textbf{AUTHOR REVIEW DRAFT --- NOT FOR SUBMISSION}}
+  \fancyfoot[L]{\sffamily\scriptsize\color{draftred}\textbf{AUTHOR REVIEW DRAFT --- NOT FOR SUBMISSION}}
 \fi
-\renewcommand{\headrulewidth}{0.35pt}
+\renewcommand{\headrulewidth}{0.3pt}
 \renewcommand{\footrulewidth}{0pt}
 \setlength{\headheight}{13pt}
+
+\fancypagestyle{firstpage}{%
+  \fancyhf{}
+  \fancyfoot[R]{\sffamily\scriptsize\color{muted}\thepage\ /\ 10}
+  \ifdraft
+    \fancyfoot[L]{\sffamily\scriptsize\color{draftred}\textbf{AUTHOR REVIEW DRAFT --- NOT FOR SUBMISSION}}
+  \fi
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
 
 \titleformat{\section}{\sffamily\color{ink}\Large\bfseries}{}{0pt}{}
 \titleformat{\subsection}{\sffamily\color{ink}\normalsize\bfseries}{}{0pt}{}
 \titlespacing*{\section}{0pt}{2pt}{4pt}
 \titlespacing*{\subsection}{0pt}{5pt}{1pt}
 
-\newcommand{\src}[1]{\textsuperscript{\color{blue}[#1]}}
-\newcommand{\eyebrow}[1]{{\sffamily\footnotesize\color{blue}\bfseries\MakeUppercase{#1}}}
-\newcommand{\pagetitle}[1]{{\fontsize{20}{22}\selectfont\bfseries #1\par}}
+\newcommand{\src}[1]{\textsuperscript{\color{accent}[#1]}}
+\newcommand{\eyebrow}[1]{{\sffamily\fontsize{7.8}{9}\selectfont\color{accent}\bfseries\MakeUppercase{#1}}}
+\newcommand{\pagetitle}[1]{{\fontsize{20}{22}\selectfont\bfseries #1\par}\vspace{1pt}\color{accent}\hrule height 0.8pt\color{ink}\vspace{4pt}}
 \newcommand{\forecast}[5]{%
   \noindent
-  \begin{minipage}[t]{0.112\textwidth}
+  \begin{minipage}[t]{0.108\textwidth}
     \vspace{0pt}
-    {\sffamily\scriptsize\color{muted}\bfseries #1}\\[-1pt]
-    {\sffamily\fontsize{21}{21}\selectfont\color{#5}\bfseries #2}\\[-1pt]
-    {\sffamily\fontsize{5.9}{6.6}\selectfont\color{#5}\bfseries\MakeUppercase{#3}}
+    {\sffamily\fontsize{7}{8}\selectfont\color{accent}\bfseries #1}\\[-2pt]
+    {\sffamily\fontsize{20}{20}\selectfont\color{accent}\bfseries #2}\\[-2pt]
+    {\sffamily\fontsize{5.9}{6.5}\selectfont\color{muted}\bfseries\MakeUppercase{#3}}
   \end{minipage}\hfill
-  \begin{minipage}[t]{0.852\textwidth}
+  \begin{minipage}[t]{0.862\textwidth}
     \vspace{2pt}
     #4
   \end{minipage}
-  \par\vspace{4.5pt}\color{rule}\hrule\color{ink}\vspace{4.5pt}
+  \par\vspace{3.8pt}\color{rule}\hrule height 0.45pt\color{ink}\vspace{3.8pt}
 }
-\newcommand{\tighthead}[1]{\vspace{2pt}{\sffamily\color{ink}\bfseries #1}\par\vspace{1pt}}
+\newcommand{\tighthead}[1]{\vspace{4pt}{\sffamily\fontsize{9.4}{10.8}\selectfont\color{ink}\bfseries #1}\par\vspace{1pt}}
+\newcommand{\numberedhead}[2]{\vspace{5pt}{\sffamily\fontsize{8}{9}\selectfont\color{accent}\bfseries #1\quad}{\sffamily\fontsize{10}{11.5}\selectfont\color{ink}\bfseries #2}\par\vspace{1pt}}
+\newcommand{\exhibithead}[1]{\vspace{3pt}{\sffamily\fontsize{8}{9}\selectfont\color{accent}\bfseries\MakeUppercase{#1}}\par\vspace{2pt}\color{accent}\hrule height 0.65pt\color{ink}\vspace{3pt}}
 
 \begin{document}
 \color{ink}
 \fontsize{9.65}{11.55}\selectfont
 
 % PAGE 1 ---------------------------------------------------------------------
-\eyebrow{Part 1 --- Your Forecasts}
-
-{\fontsize{23}{25}\selectfont\bfseries The Assured-Access Economy\par}
-\vspace{1pt}
-{\sffamily\large\color{muted}Abundant intelligence meets scarce, strategic complements}
-
-\vspace{4pt}
-\begin{tabularx}{\textwidth}{@{}Xr@{}}
-\small Joao Paulo Zangrandi & \small Information cutoff: July 30, 2026\\
-\end{tabularx}
-\color{rule}\hrule\color{ink}
+\thispagestyle{firstpage}
+\noindent\colorbox{cover}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{
+  \vspace{8pt}
+  {\sffamily\fontsize{8}{9}\selectfont\color{white}\bfseries FORECASTING THE FUTURE 2026\quad/\quad AUTHOR REVIEW DRAFT\par}
+  \vspace{9pt}
+  {\sffamily\fontsize{25}{28}\selectfont\color{white}\bfseries The Assured-Access Economy\par}
+  \vspace{3pt}
+  {\sffamily\fontsize{12}{14}\selectfont\color{white}Abundant intelligence meets scarce, strategic complements\par}
+  \vspace{12pt}
+  {\sffamily\fontsize{7.5}{9}\selectfont\color{white}JOAO PAULO ZANGRANDI\hfill Information cutoff: July 30, 2026\par}
+  \vspace{7pt}
+}}
+\color{copper}\hrule height 2.2pt\color{ink}
 \vspace{7pt}
+\eyebrow{Part 1 --- Your Forecasts}
+\vspace{4pt}
 
 Each event resolves Yes or No under the source, vintage, equality, revision,
 and fallback rules on page 10. Probabilities are unconditional as of the
 information cutoff and rounded to whole percentage points.
 
-\vspace{4pt}
+\vspace{2pt}
 \forecast{F01}{75\%}{Capability}{There is a 75\% chance that, by December 31, 2029, METR will report a 50\% task-completion time horizon of at least 168 human-expert hours for a publicly available general-purpose AI agent.}{blue}
 \vfill
-
 \forecast{F02}{64\%}{Diffusion}{There is a 64\% chance that at least 35\% of U.S. employer firms will report using AI in any business function in the final 2028 Business Trends and Outlook Survey estimate.}{teal}
 \vfill
-
 \forecast{F03}{46\%}{Productivity}{There is a 46\% chance that U.S. nonfarm-business labor productivity will grow by more than 2.25\% annualized from 2026Q4 through 2030Q4.}{gold}
 \vfill
-
 \forecast{F04}{58\%}{Capital}{There is a 58\% chance that Alphabet, Amazon, Meta, and Microsoft will report more than \$1 trillion of aggregate capital expenditure in calendar 2028.}{red}
 \vfill
-
 \forecast{F05}{52\%}{Energy}{There is a 52\% chance that data centers will consume more than 12\% of total U.S. electricity in calendar 2030.}{teal}
 \vfill
-
 \forecast{F06}{78\%}{Chips}{There is a 78\% chance that at least three independent foundry operators will be conducting commercial high-volume production on company-designated 2-nanometer-or-smaller process nodes in the United States by December 31, 2030.}{blue}
 
 \vfill
-\colorbox{panel}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{
-  \sffamily\scriptsize\color{ink}
-  \textbf{Portfolio claim.} Capability scales before productivity; strategic
+{\color{accent}\hrule height 0.8pt}\vspace{3pt}
+{\sffamily\scriptsize\color{ink}
+  \textbf{Portfolio claim /} Capability scales before productivity; strategic
   capacity duplicates before complete supply chains diversify; trade rules
-  fragment before global trade collapses. Colors identify analytical bundles,
-  not confidence bands.
-}}
+  fragment before global trade collapses.
+}
 
 \newpage
 
 % PAGE 2 ---------------------------------------------------------------------
 \eyebrow{Part 1 --- Your Forecasts, continued}
 
-{\large\bfseries The physical stack and the trade regime}
-\vspace{5pt}
+{\fontsize{17}{19}\selectfont\bfseries Six forecasts on the physical stack and the trade regime\par}
+\vspace{3pt}\color{accent}\hrule height 0.8pt\color{ink}\vspace{5pt}
 
 \forecast{F07}{39\%}{EU compute}{There is a 39\% chance that at least four facilities selected under the EU AI Gigafactories initiative will be operational and accepting compute workloads from external users by December 31, 2029.}{red}
 
@@ -154,11 +161,11 @@ information cutoff and rounded to whole percentage points.
 
 \forecast{F12}{72\%}{Tariffs}{There is a 72\% chance that the annual U.S. effective tariff rate, measured as duties collected divided by customs value, will average at least 8\% across calendar years 2027 through 2029.}{red}
 
-\vspace{2pt}
+\vspace{3pt}
 \begin{center}
 \includegraphics[width=\textwidth]{generated/evidence_dashboard.png}
 \end{center}
-\vspace{-3pt}
+\vspace{-4pt}
 {\scriptsize\color{muted}
 \textbf{Four anchors, not four extrapolations.} U.S. firm AI use is
 firm-count weighted; the DOE number is its 2030 central estimate; the refining
@@ -170,11 +177,13 @@ average excludes rare earths; the MFN share is the WTO's early-2026 estimate.
 % PAGE 3 ---------------------------------------------------------------------
 \eyebrow{Part 2 --- Framework \& Holistic Synthesis}
 
-\pagetitle{Intelligence gets cheaper; assurance gets dearer}
-\vspace{3pt}
+\pagetitle{Intelligence gets cheaper. Assurance gets dearer.}
 
-\textbf{Thesis.} My highest-conviction claim is not that AI makes everything
-scarce. It is that AI changes which scarcities are worth insuring. Cognition is
+{\fontsize{13.1}{15.5}\selectfont\bfseries My highest-conviction claim is not
+that AI makes everything scarce. It is that AI changes which scarcities are
+worth insuring.\par}
+\vspace{2pt}
+Cognition is
 becoming abundant faster than economies can make power, chips, minerals, data,
 capital, and industrial know-how abundant. Modern Mercantilism is the political
 response to that mismatch: states pay a premium to secure those complements
@@ -193,10 +202,11 @@ That feedback loop explains why rapid capability progress (F01) can coexist
 with only a coin-flip power outcome (F05), delayed aggregate productivity
 (F03), and stubborn mineral concentration (F08).
 
+\exhibithead{Exhibit 2 / The assured-access feedback loop}
 \begin{center}
-\includegraphics[width=\textwidth]{generated/causal_loop.png}
+\includegraphics[width=0.98\textwidth]{generated/causal_loop.png}
 \end{center}
-\vspace{-7pt}
+\vspace{-5pt}
 
 \tighthead{The production function has six serial gates}
 Useful AI output is constrained by the weakest of: \textbf{algorithms},
@@ -230,7 +240,7 @@ growth clearing 2.25\% through 2030 (F03).
 
 \pagetitle{From comparative advantage to assured access}
 
-\tighthead{1. States target chokepoints, not autarky}
+\numberedhead{01}{States target chokepoints, not autarky}
 Complete self-sufficiency is arithmetically implausible and economically
 wasteful. Policy therefore concentrates on components with high downstream
 value, low substitutability, and few suppliers: advanced logic, grid equipment,
@@ -250,7 +260,7 @@ supply ecosystems. F10 says discriminatory and preferential lanes keep
 expanding, but not that trade collapses.
 
 \vfill
-\tighthead{2. Trade balances and capital balances are the same transaction}
+\numberedhead{02}{Trade balances and capital balances are the same transaction}
 The mercantilist ambition to shrink a trade deficit also shrinks the matching
 capital inflow. Nir Bar Dea's observation is operationally important: foreign
 surpluses helped finance U.S. assets, including the AI build-out; a world that
@@ -261,7 +271,7 @@ energy options, and hyperscaler demand; allies acquire more local
 infrastructure, while paying higher financing and duplication costs.
 
 \vfill
-\tighthead{3. Industrial policy buys capacity more readily than capability}
+\numberedhead{03}{Industrial policy buys capacity more readily than capability}
 Subsidies can move factories, especially where scale economies are strong, but
 local-content rules also raise cost and can undo much of the demand stimulus.
 \src{26} Execution requires utilities, permitting, equipment, skills, customers,
@@ -272,7 +282,7 @@ usable EU gigafactories by 2029 receive only 39\% because the program targets at
 most five and construction begins from 2027.\src{16,17,18}
 
 \vfill
-\tighthead{4. The AI capex boom is simultaneously demand and supply policy}
+\numberedhead{04}{The AI capex boom is simultaneously demand and supply policy}
 Hyperscaler capex supports near-term growth before the systems prove their
 revenue yield. Bridgewater estimates a large 2026--27 U.S. growth contribution,
 but notes that the build is labor-light and can crowd out other investment.
@@ -286,9 +296,9 @@ well before software capability reverses.
 \begingroup
 \renewcommand{\arraystretch}{1.42}
 \begin{tabularx}{\textwidth}{@{}>{\sffamily\bfseries}p{0.19\textwidth}X>{\sffamily\bfseries}p{0.19\textwidth}X@{}}
-\color{blue}Scales quickly & software capability, model access, trade rerouting &
+\color{accent}Scales quickly & software capability, model access, trade rerouting &
 \color{ink}Scales slowly & grids, refineries, skills, institutions\\
-\color{red}Policy can buy & redundant plant, inventory, demand guarantees &
+\color{copper}Policy can buy & redundant plant, inventory, demand guarantees &
 \color{ink}Policy cannot buy & tacit know-how, utilization, trust, productivity\\
 \end{tabularx}
 \endgroup
@@ -300,8 +310,10 @@ well before software capability reverses.
 
 \pagetitle{Distribution, scenarios, and falsification}
 
+\begin{minipage}[t]{0.485\textwidth}
+\vspace{0pt}
 \tighthead{Who wins}
-\begin{itemize}
+\begin{itemize}[leftmargin=1.0em,itemsep=2.5pt,topsep=1pt]
   \item \textbf{Owners of scarce complements:} power developers, grid and
   cooling suppliers, advanced foundries, semiconductor equipment firms, and
   refiners with secure feedstock. They earn scarcity rents even when model
@@ -313,45 +325,49 @@ well before software capability reverses.
   \item \textbf{China's manufacturing ecosystem:} export destinations change,
   yet supplier density, infrastructure, and cost advantages persist. China can
   lose U.S. share while sustaining a trillion-dollar surplus (F09).
-  \item \textbf{Power-rich and resource-rich middle powers:} countries that
-  offer reliable energy, minerals, permitting, and geopolitical optionality
-  gain bargaining power as firms pay for jurisdictional diversification.
+  \item \textbf{Power-rich and resource-rich middle powers:} reliable energy,
+  minerals, permitting, and geopolitical optionality gain value as firms pay
+  for jurisdictional diversification.
 \end{itemize}
-
+\end{minipage}\hfill
+\begin{minipage}[t]{0.485\textwidth}
+\vspace{0pt}
 \tighthead{Who loses}
-\begin{itemize}
+\begin{itemize}[leftmargin=1.0em,itemsep=2.5pt,topsep=1pt]
   \item \textbf{Energy-poor industrial importers} pay three premiums at once:
   expensive power, duplicated capacity, and mineral security.
   \item \textbf{Routine entry-level cognitive labor} faces a flow problem
   before an aggregate unemployment shock: fewer openings, weaker training
-  ladders, and gains captured by capital and complementary experts. Current
-  evidence shows exposure and slower young-worker hiring, not yet mass
-  displacement.\src{10}
+  ladders, and gains captured by capital and complementary experts. Evidence
+  shows exposure and slower young-worker hiring, not mass displacement.\src{10}
   \item \textbf{Consumers and taxpayers in bottleneck jurisdictions} fund
-  subsidies and bear tariff incidence. Protection can create capacity while
-  lowering real income; those statements are not contradictory.
+  subsidies and bear tariff incidence. Capacity creation and lower real income
+  can occur together.
   \item \textbf{Universal institutions} lose authority to bilateral bargains,
   clubs, and interim workarounds. F11 is the institutional counterpart to F10
   and F12.
 \end{itemize}
+\end{minipage}
 
+\vfill
 \tighthead{Three coherent worlds}
 \begin{tabularx}{\textwidth}{@{}>{\bfseries}p{0.18\textwidth}>{\centering\arraybackslash}p{0.08\textwidth}X@{}}
 \toprule
 Scenario & Weight & Joint implications\\
 \midrule
-\color{blue}Abundant AI & 25\% & Week-scale agents arrive early;
+\color{accent}Abundant AI & 25\% & Week-scale agents arrive early;
 diffusion and productivity accelerate; efficiency softens physical scarcity
 and trade discrimination is less necessary.\\
-\color{red}Bottlenecked boom & 50\% & Capability and capex stay fast, but power,
+\color{ink}\textbf{Bottlenecked boom} & \textbf{50\%} & Capability and capex stay fast, but power,
 materials, implementation, and national rivalry bind; real productivity trails
 nominal investment. This is the modal world.\\
-\color{gold}Retrenchment & 25\% & Returns disappoint and AI construction
+\color{copper}Retrenchment & 25\% & Returns disappoint and AI construction
 slows; strategic rivalry, tariffs, mineral concentration, and institutional
 paralysis persist because their political causes predate the boom.\\
 \bottomrule
 \end{tabularx}
 
+\vfill
 \tighthead{The decisive asymmetry}
 AI forecasts fall sharply in the retrenchment world; mercantilism forecasts do
 not. That is deliberate. Modern Mercantilism is not merely an AI investment
@@ -359,6 +375,7 @@ cycle: it is rooted in security competition, domestic distribution, and the
 failure of prior rules to discipline non-market policy. AI intensifies the
 competition but need not cause it.
 
+\vfill
 \tighthead{Kill criteria}
 The framework is wrong if three developments occur together by 2028:
 quality-adjusted inference becomes radically less resource-intensive,
@@ -615,7 +632,7 @@ reversal.\src{27}
 \begin{multicols}{2}
 \raggedcolumns
 
-\textbf{\color{blue}Resolution protocol.} Equality follows the sentence
+\textbf{\color{accent}Resolution protocol.} Equality follows the sentence
 (``at least'' includes it; ``more than'' does not). Use the first qualifying
 official release by June 30, 2031 and its then-current vintage unless a
 forecast below specifies another date. Later revisions do not reopen a result.
@@ -667,7 +684,7 @@ downloaded 2030-06-30; Yes at $\geq8.000\%$.
 
 \columnbreak
 
-\textbf{\color{blue}Selected sources.}
+\textbf{\color{accent}Selected sources.}
 
 \textbf{[1]} Bridgewater/Global Citizen, \href{https://observatory.bwater.com/events/2026-forecasting-the-future}{Forecasting the Future 2026 brief}, accessed Jul.\ 30, 2026.
 
@@ -728,7 +745,7 @@ downloaded 2030-06-30; Yes at $\geq8.000\%$.
 \textbf{[29]} Brand et al., \href{https://www.nber.org/papers/w32938}{Firm Productivity and Learning with Digital Technologies}, NBER 32938, rev.\ 2025.
 
 \vfill
-\textbf{\color{red}Draft governance note.} The entrant must independently
+\textbf{\color{draftred}Draft governance note.} The entrant must independently
 challenge and approve the thesis, wording, probabilities, and prose before
 submission under the competition's authorship terms.\src{2}
 
