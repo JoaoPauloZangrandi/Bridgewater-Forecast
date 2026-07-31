@@ -1,0 +1,13 @@
+id,cluster,horizon,question,threshold,resolution_source,prior,trend_view,policy_view,counter_view,status
+F01,capability,2029,"Will a public frontier AI agent reach a METR 50% task-completion horizon of at least 168 human-expert hours by 2029-12-31?",">=168 hours","METR Time Horizons or named successor",0.55,0.76,0.68,0.38,candidate
+F02,diffusion,2028,"Will at least 35% of U.S. firms report using AI in any business function by the final 2028 BTOS release?",">=35%","U.S. Census BTOS",0.58,0.78,0.70,0.46,candidate
+F03,macro,2030,"Will U.S. nonfarm-business labor productivity grow by more than 2.25% annualized from 2026Q4 through 2030Q4?",">2.25% annualized","BLS Productivity and Costs",0.42,0.62,0.55,0.31,candidate
+F04,capital,2028,"Will aggregate calendar-year capital expenditure by Alphabet Amazon Meta and Microsoft exceed USD 1 trillion in 2028?",">$1tn nominal","company filings with calendar-quarter alignment",0.44,0.72,0.68,0.28,candidate
+F05,energy,2030,"Will U.S. data centers consume more than 12% of total U.S. electricity in calendar 2030?",">12%","DOE/LBNL U.S. Data Center Energy Usage update",0.38,0.65,0.57,0.30,candidate
+F06,chips,2030,"Will at least two independent foundry operators conduct commercial high-volume production at <=2nm in the United States by 2030-12-31?","two operators at <=2nm","company filings plus Commerce/GAO verification",0.46,0.65,0.72,0.34,candidate
+F07,sovereign_compute,2029,"Will at least four EU-backed AI Gigafactories be operational and accepting external workloads by 2029-12-31?","four operational facilities","European Commission and EuroHPC",0.35,0.50,0.67,0.24,candidate
+F08,minerals,2030,"Will the average share of the top refining country across the IEA's key energy minerals remain above 65% in 2030?",">65% average concentration","IEA Global Critical Minerals Outlook",0.70,0.82,0.73,0.56,candidate
+F09,china_trade,2029,"Will China's goods trade surplus exceed USD 1 trillion in at least two of calendar years 2027-2029?","two years >$1tn","China GACC annual trade releases",0.55,0.78,0.62,0.39,candidate
+F10,trade_fragmentation,2029,"Will the share of global merchandise trade conducted on WTO MFN terms be 75% or lower at year-end 2029?","<=75%","WTO MFN trade-share dataset",0.68,0.82,0.75,0.52,candidate
+F11,multilateralism,2029,"Will the WTO Appellate Body still lack the minimum three sitting members needed to hear an appeal on 2029-12-31?","fewer than three sitting members","WTO Appellate Body roster",0.64,0.79,0.72,0.48,candidate
+F12,tariffs,2029,"Will U.S. customs duties equal at least 8% of customs-value goods imports on average over calendar years 2027-2029?","three-year average >=8%","U.S. Treasury/Census and WTO-IMF Tariff Tracker",0.52,0.72,0.67,0.35,candidate

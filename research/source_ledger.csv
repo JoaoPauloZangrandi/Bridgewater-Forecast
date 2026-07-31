@@ -1,0 +1,51 @@
+id,as_of,type,publisher,title,url,role
+S01,2026-07-30,official brief,Bridgewater and Global Citizen,Forecasting the Future 2026,https://observatory.bwater.com/events/2026-forecasting-the-future,requirements and judging
+S02,2026-07-30,terms,Bridgewater and Global Citizen,Challenge 2026 Terms and Conditions,https://www.bridgewater.com/bridgewater-global-citizen-forecasting-the-future-a-modern-economics-challenge-2026-terms-conditions,eligibility and authorship
+S03,2024-11-25,framework,Bridgewater Associates,We're All Mercantilists Now,https://www.bridgewater.com/research-and-insights/were-all-mercantilists-now,definition and causal baseline
+S04,2026-01-07,framework,Bridgewater Associates,The Macro Implications of the AI Capex Boom,https://www.bridgewater.com/research-and-insights/the-macro-implications-of-the-ai-capex-boom,AI capex macro channels
+S05,2026-04-27,framework,Bridgewater Associates,The Accelerating Resource Grabs in AI and Modern Mercantilism,https://www.bridgewater.com/the-accelerating-resource-grabs-in-ai-and-modern-mercantilism-content-ctd,resource-grab baseline
+S06,2026-06-16,interview,Unholy podcast,Nir Bar Dea on the New World Order AI and Israel's Risks,https://poddtoppen.se/podcast/1548441108/unholy-two-jews-on-the-news/nir-bar-dea-on-the-new-world-order-ai-and-israels-risks,trade-capital mirror and diversification
+S07,2025-11-10,method,Bridgewater AIA Labs,AIA Forecaster Technical Report,https://arxiv.org/abs/2511.07678,search ensemble reconciliation and calibration
+S08,2026-05-08,research,METR,Task-Completion Time Horizons of Frontier AI Models,https://metr.org/time-horizons/,AI capability resolution
+S09,2026-04-13,research,Stanford HAI,2026 AI Index Report,https://hai.stanford.edu/ai-index/2026-ai-index-report,investment adoption and policy
+S10,2026-06-10,research,Stanford Digital Economy Lab,AI Economic Indicators June 2026,https://digitaleconomy.stanford.edu/app/uploads/2026/06/AIEI_RN01_Jun26.pdf,labor-market leading indicators
+S11,2026-03-05,research,Anthropic,Labor market impacts of AI: a new measure and early evidence,https://www.anthropic.com/research/labor-market-impacts,observed exposure and hiring
+S12,2026-07-10,research,International Monetary Fund,Aggregate Gains from AI and Their Distribution,https://www.imf.org/en/publications/wp/issues/2026/07/10/aggregate-gains-from-ai-and-their-distribution-global-evidence-from-usage-data-577586,global diffusion and concentration
+S13,2026-06-04,data,U.S. Bureau of Labor Statistics,Productivity and Costs,https://www.bls.gov/productivity/,productivity resolution
+S14,2026-05-19,data,U.S. Energy Information Administration,Annual Energy Outlook 2026 data center server use,https://www.eia.gov/todayinenergy/detail.php?id=67704,energy forecast and resolution
+S15,2026-06-01,research,International Energy Agency,Key Questions on Energy and AI,https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary,global data-center energy scenarios
+S16,2026-07-01,data,U.S. Department of Energy,Powering America's AI Future Data Center Resource Hub,https://www.energy.gov/powering-americas-ai-future-data-center-resource-hub,U.S. data-center electricity scenarios
+S17,2026-01-01,research,U.S. Government Accountability Office,Semiconductors: Information on Projects Funded to Strengthen U.S. Supply Chain,https://www.gao.gov/products/gao-26-107882,CHIPS project pipeline
+S18,2026-07-26,research,Semiconductor Industry Association,2026 State of the Industry Report,https://www.semiconductors.org/2026-state-of-the-industry-report-historic-growth-amid-intensifying-global-competition/,semiconductor investment pipeline
+S19,2026-07-30,policy,European Commission,AI Gigafactories,https://commission.europa.eu/topics/competitiveness/competitiveness-coordination-tool-projects/ai-gigafactories_en,EU sovereign compute resolution
+S20,2026-03-19,data,World Trade Organization,Global Trade Outlook and Statistics March 2026,https://www.wto.org/english/news_e/news26_e/stat_19mar26_329_e.htm,MFN share and trade outlook
+S21,2026-07-27,data,World Trade Organization and IMF,WTO-IMF Tariff Tracker,https://ttd.wto.org/en/reports/tariff-actions,tariff resolution
+S22,2026-04-08,research,Yale Budget Lab,State of U.S. Tariffs April 8 2026,https://budgetlab.yale.edu/sites/default/files/page_to_pdf/1466/publication_1466.pdf,U.S. effective tariff baseline
+S23,2026-04-14,data,International Monetary Fund,World Economic Outlook April 2026,https://www.imf.org/en/publications/weo/issues/2026/04/14/world-economic-outlook-april-2026,macro baselines
+S24,2026-03-23,research,Federal Reserve Board,China's Trade Dominance and the Role of Industrial Policies,https://www.federalreserve.gov/econres/notes/feds-notes/chinas-trade-dominance-and-the-role-of-industrial-policies-20260323.html,China trade and industrial policy
+S25,2026-02-18,research,International Monetary Fund,People's Republic of China 2025 Article IV,https://www.imf.org/-/media/files/publications/cr/2026/english/1chnea2026001-source-pdf.pdf,China rebalancing countercase
+S26,2026-07-16,research,International Energy Agency,Global Critical Minerals Outlook 2026,https://www.iea.org/reports/global-critical-minerals-outlook-2026/executive-summary,concentration and export controls
+S27,2026-04-01,data,OECD,Inventory of Export Restrictions on Critical Raw Materials 2026,https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/04/oecd-inventory-of-export-restrictions-on-critical-raw-materials-2026_2cedac0b/d5ca8f62-en.pdf,export-restriction resolution
+S28,2026-01-01,research,Global Trade Alert,Security First: How Industrial Policy Changed in 2025,https://globaltradealert.org/reports/how-industrial-policy-changed-in-2025,industrial-policy base rates
+S29,2026-03-19,research,Global Trade Alert,New Converts: The Return of Discriminatory Public Procurement,https://globaltradealert.org/reports/New-Converts-The-Return-of-Discriminatory-Public-Procurement,procurement policy base rates
+S30,2026-05-28,research,International Monetary Fund,Industrial Policy Is Adapting to Crises,https://www.imf.org/en/blogs/articles/2026/05/28/industrial-policy-is-adapting-to-crises-but-remains-hard-to-implement-effectively,implementation failures
+S31,2026-06-12,research,Calvin Zhang,AI Data Centers and Electricity Prices: Much Ado About Something?,https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6930258,local price spillovers
+S32,2026-05-12,research,Darmouni Lehner and Zhang,The Energy Cost of AI and Data Centers,https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6751399,energy-price and emissions scenarios
+S33,2026-04-01,research,NBER and U.S. Census,The Microstructure of AI Diffusion,https://www.nber.org/papers/w35141,firm-count adoption baseline and scope
+S34,2026-02-01,research,NBER,Firm Data on AI,https://www.nber.org/papers/w34836,realized impact versus executive expectations
+S35,2026-03-01,research,NBER,Artificial Intelligence Productivity and the Workforce,https://www.nber.org/papers/w34984,productivity paradox and labor reallocation
+S36,2026-05-18,research,Korinek and McKelvey,Measuring the AI Economy,https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6813982,quality-adjusted AI output and efficiency
+S37,2026-02-01,research,NBER,Industrial Policies for Multi-Stage Production,https://www.nber.org/papers/w34884,local-content cost and capacity effects
+S38,2026-02-01,research,NBER,An Anatomy of the Great Reallocation in US Supply Chain Trade,https://www.nber.org/papers/w34490,trade rerouting rather than deglobalization
+S39,2026-03-20,data,World Trade Organization,AI Investment and Middle East Conflict Shape Global Trade,https://www.wto.org/english/news_e/news26_e/blgrs_20mar26_332_e.htm,MFN decline and AI-goods trade
+S40,2026-07-30,data,U.S. International Trade Commission,DataWeb official merchandise trade statistics,https://dataweb.usitc.gov/,effective tariff resolution
+S41,2026-06-10,company,Samsung Semiconductor,Samsung Austin and Taylor Economic Impact,https://semiconductor.samsung.com/sas/local-news/samsung-austin-semiconductors-two-campuses-inject-10-9b-into-central-texas-economy-in-2025/,Taylor 2nm execution signal
+S42,2026-02-28,company,Intel,Ohio One Construction Timeline Update,https://newsroom.intel.com/corporate/ohio-one-construction-timeline-update,semiconductor delay base rate
+S43,2026-06-04,company,TSMC,2026 Annual General Meeting Minutes,https://investor.tsmc.com/sites/ir/shareholders-meeting/2026-06-04/2026AGM_Minutes_wmn.pdf,Arizona production timetable
+S44,2026-04-01,interview,Bridgewater Daily Observations,Global Outlook with Greg Jensen,https://open.spotify.com/episode/5BgxpVoYDs64pwt6ZYM9gJ,scenario and bottleneck stress test
+S45,2026-05-18,interview,Bloomberg,Nvidia CEO Jensen Huang and Dell CEO Michael Dell,https://www.listennotes.com/podcasts/bloomberg/nvidia-ceo-jensen-huang-dell-WCVAxR5gr74/,supply-chain constraint management signal
+S46,2026-02-28,interview,CBS News,Interview with Anthropic CEO Dario Amodei,https://www.cbsnews.com/news/anthropic-ceo-dario-amodei-full-transcript/,capability and labor tail-risk signal
+S47,2026-07-24,interview,Axios,Nvidia's Huang says no chip bust for a while,https://www.axios.com/2026/07/24/nvidia-chips-ai-boom,AI capex upside view
+S48,2026-07-30,policy,European Commission,AI Gigafactories,https://commission.europa.eu/topics/competitiveness/competitiveness-coordination-tool-projects/ai-gigafactories_en,up-to-five target and construction schedule
+S49,2026-06-18,data,U.S. Census Bureau,BTOS AI Supplement Release,https://www.census.gov/newsroom/press-releases/2026/btos-june-18.html,official AI-use question and release protocol
+S50,2025-12-01,research,NBER,Firm Productivity and Learning with Digital Technologies,https://www.nber.org/papers/w32938,multi-year organizational learning after cloud adoption
