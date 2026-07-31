@@ -16,6 +16,7 @@ SCENARIOS = ROOT / "data" / "scenario_matrix.csv"
 RESOLUTIONS = ROOT / "research" / "resolution_registry.md"
 TEX = ROOT / "submission.tex"
 DELIVERABLE = ROOT / "deliverable"
+BUILD = ROOT / "build"
 
 
 def command_text(*args: str) -> str:
@@ -114,7 +115,7 @@ def main() -> None:
     require("July 30, 2026" in all_text, "Information cutoff missing")
     require("??" not in all_text, "Unresolved placeholder found in PDF text")
 
-    log_path = pdf.with_suffix(".log")
+    log_path = BUILD / f"{pdf.stem}.log"
     require(log_path.exists(), "Compilation log is missing")
     log_text = log_path.read_text(encoding="utf-8", errors="replace")
     require("Overfull \\hbox" not in log_text, "Overfull box in LaTeX log")

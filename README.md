@@ -23,9 +23,13 @@ state that entries may not be substantially AI generated. See
 ```powershell
 python scripts\calibrate.py
 python scripts\build_figures.py
+New-Item -ItemType Directory -Force build | Out-Null
 pdflatex -interaction=nonstopmode -halt-on-error `
-  -output-directory=deliverable `
+  -output-directory=build `
   -jobname=Bridgewater_Forecasting_the_Future_2026_DRAFT submission.tex
+Copy-Item -Force `
+  build\Bridgewater_Forecasting_the_Future_2026_DRAFT.pdf `
+  deliverable\Bridgewater_Forecasting_the_Future_2026_DRAFT.pdf
 python scripts\validate_submission.py --allow-draft
 ```
 

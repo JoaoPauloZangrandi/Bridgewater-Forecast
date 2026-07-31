@@ -20,3 +20,7 @@ his own words, without paraphrasing the manuscript:
 
 The next revision should use that material as the intellectual spine, not as a
 cosmetic sign-off. The final validator must pass without `--allow-draft`.
+
+An AI-generated model response is available in
+`research/AI_DRAFT_AUTHOR_RESPONSES.md`. It is explicitly a drafting aid, is not
+Joao's response, and does not satisfy any item in this checkpoint.
